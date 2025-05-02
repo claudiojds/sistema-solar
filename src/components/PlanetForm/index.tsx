@@ -1,12 +1,16 @@
-// import { FormEventHandler } from 'react';
 import styles from './styles.module.css';
 import { createPlanetActions } from '@/actions/planets-actions';
 
-// interface PlanetFormProps {
-//   onSubmit: FormEventHandler<HTMLFormElement>
-// }
+function wait(ms: number) {
+  return(
+    new Promise (resolve => {
+      setTimeout(() => resolve(true), ms);
+    })
+  );
+}
 
-export function PlanetForm() {
+export async function PlanetForm() {
+  await wait(1000)
   return (
     <form action={createPlanetActions} className={styles.planetForm} >
       <div>

@@ -9,7 +9,7 @@ export async function createPlanetActions(formData: FormData) {
   const imageUrl = formData.get("imageUrl");
 
   if (typeof name !== 'string' || typeof description !== 'string' || typeof imageUrl !== 'string') {
-    return null;
+    return;
   }
 
   await createPlanets({name, description, imageUrl})

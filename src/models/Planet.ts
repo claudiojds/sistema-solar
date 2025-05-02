@@ -13,16 +13,10 @@ interface CreatePlanetsParams {
     imageUrl: string
 }
 
-function wait(ms: number) {
-  return(
-    new Promise (resolve => {
-      setTimeout(() => resolve(true), ms);
-    })
-  );
-}
+
 
 export async function getPlanets() {
-  await wait(3000)
+  // await wait(3000)
   const results = await pool.query('SELECT id, name, description, image_url AS "imageUrl" FROM planets;');
   const planets: Planet[] = results.rows;
 
